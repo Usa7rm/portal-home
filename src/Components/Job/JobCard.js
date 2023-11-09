@@ -12,9 +12,11 @@ const JobCard = ({ id, postedOn, title, type, location, companyName, companyUrl,
     <Box p={2} mb={2} sx={{
         border: '1px solid #e8e8e8',
         transition: '.3s ease',
+        backgroundColor: 'background.paper',
         "&:hover": {
             boxShadow: '0px 5px 25px rgba(0,0,0,0.1)',
-            borderLeft: '6px solid #00668c'
+            borderLeft: '6px solid #00668c',
+            backgroundColor: '#d4eaf7'
         }
     }}>
       {/* Set the outer Grid as a container */}
