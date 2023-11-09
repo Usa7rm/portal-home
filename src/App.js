@@ -1,24 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+// App.js
+import {React,useState} from 'react';
+import { ThemeProvider, Grid } from '@mui/material';
+import theme from './theme/theme';
+import Header from './Components/Header';
+import CssBaseline from '@mui/material/CssBaseline';
+import SearchBar from './Components/Header/SearchBar';
+import JobCard from './Components/Job/JobCard';
+import NewJobModal from './Components/Job/NewJobModal';
+import jobsData from './DummyData';
 
-function App() {
+
+const App = () => {
+  const [isNewJobModalOpen, setNewJobModalOpen] = useState(false);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <Header openNewJobModal={() => setNewJobModalOpen(true)}/>
+      <NewJobModal open={isNewJobModalOpen} setOpen={setNewJobModalOpen}/>
+      <Grid container justifyContent={"center"}>
+        <Grid item xs={10}>
+            <SearchBar />
+            {jobsData.map(job =><JobCard key={job.id} {...job}/>)}
+        </Grid>
+      </Grid>
+    </ThemeProvider>
   );
 }
 
