@@ -1,18 +1,26 @@
 import {React} from "react";
 import {Box,Button,Grid,FilledInput,Select,MenuItem,Dialog,DialogTitle,DialogContent,DialogActions, Typography,IconButton} from '@mui/material'
 import {Close as CloseButton} from '@mui/icons-material'
+import CloudUploadIcon from '@mui/icons-material/CloudUpload';
+import { styled } from '@mui/material/styles';
+
 const JobPost = ({ open, setOpen }) => {
-    const skills =[
-        "JavaScript",
-        "React",
-        "Node",
-        "Html",
-        "MongoDb",
-        "SQL"
-    ]
+    
     const handleClose = () => {
         setOpen(false);
-      };
+      };  
+
+    const VisuallyHiddenInput = styled('input')({
+        clip: 'rect(0 0 0 0)',
+        clipPath: 'inset(50%)',
+        height: 1,
+        overflow: 'hidden',
+        position: 'absolute',
+        bottom: 0,
+        left: 0,
+        whiteSpace: 'nowrap',
+        width: 1,
+      });
     
 
     return(
@@ -56,25 +64,14 @@ const JobPost = ({ open, setOpen }) => {
                         <FilledInput placeholder="Job Description" disableUnderline fullWidth multiline rows={4}></FilledInput>
                     </Grid>
                 </Grid>
-                <Box mt={2}>
-                    <Typography>Skills</Typography>
-                    <Box display={"flex"} >
-                        {skills.map(skill => <Box key={skill} sx={{
-                        margin:'4px',
-                        padding:'6px',
-                        fontSize:'14.5px',
-                        borderRadius:'5px',
-                        cursor: 'pointer',
-                        fontWeight:'bold',
-                        border:`1px solid`,
-                        color:'text.primaryt',
-                        '&:hover': {
-                            backgroundColor:'text.secondary',
-                            color:'background.default',
-                        }
-                        }}>{skill}</Box>)}
+                <Box mt={2} display="flex" flexDirection="column" alignItems="center">
+                    <Typography>Upload Your Resume</Typography>
+                    <Box display="flex" justifyContent="center" width="100%"> {/* Center align button */}
+                        <Button component="label" variant="contained" disableElevation startIcon={<CloudUploadIcon />}>
+                        Upload file
+                        <VisuallyHiddenInput type="file" />
+                        </Button>
                     </Box>
-
                 </Box>
             </DialogContent>
             <DialogActions>
