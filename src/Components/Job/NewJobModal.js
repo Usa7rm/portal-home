@@ -1,4 +1,4 @@
-import {React,useState} from "react";
+import {React} from "react";
 import {Box,Button,Grid,FilledInput,Select,MenuItem,Dialog,DialogTitle,DialogContent,DialogActions, Typography,IconButton} from '@mui/material'
 import {Close as CloseButton} from '@mui/icons-material'
 const JobPost = ({ open, setOpen }) => {

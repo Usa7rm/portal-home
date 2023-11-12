@@ -24,6 +24,17 @@ const theme = createTheme({
     },
   },
   components: {
+    MuiCssBaseline: {
+      styleOverrides: {
+        // Define global styles here
+        '.active': {
+          // Your active link styles
+          backgroundColorcolor: '#1d1c1c', // Example: Change text color for active links
+          fontWeight: 'bold', // Example: Make active link bold
+          // Add more styles as needed
+        },
+      },
+    },
     MuiButton: {
       styleOverrides: {
         root: {
@@ -60,6 +71,12 @@ const theme = createTheme({
     },
     MuiSelect: {
       styleOverrides: {
+        '.active': {
+          // Your active link styles
+          color: '#e11249', // Example: Change text color for active links
+          fontWeight: 'bold', // Example: Make active link bold
+          // Add more styles as needed
+        },
         filled: {
           padding: '15px 0 15px 15px',
         },

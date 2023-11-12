@@ -1,30 +1,32 @@
-// App.js
-import {React,useState} from 'react';
-import { ThemeProvider, Grid } from '@mui/material';
-import theme from './theme/theme';
-import Header from './Components/Header';
-import CssBaseline from '@mui/material/CssBaseline';
-import SearchBar from './Components/Header/SearchBar';
-import JobCard from './Components/Job/JobCard';
-import NewJobModal from './Components/Job/NewJobModal';
-import jobsData from './DummyData';
-
+//App.js
+import React from 'react';
+import {BrowserRouter, Routes, Route} from 'react-router-dom'
+import { ThemeProvider } from '@mui/material';
+import Home  from './Pages/Home';
+import JobList from './Pages/JobList';
+import About from './Pages/About';
+import Contact from './Pages/Contact';
+import Signin from './Pages/Signin';
+import Signup from './Pages/Signup';
+import Pagenotfound from './Pages/Pagenotfound';
+import theme from './theme/theme'
 
 const App = () => {
-  const [isNewJobModalOpen, setNewJobModalOpen] = useState(false);
-  return (
+   return (
     <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <Header openNewJobModal={() => setNewJobModalOpen(true)}/>
-      <NewJobModal open={isNewJobModalOpen} setOpen={setNewJobModalOpen}/>
-      <Grid container justifyContent={"center"}>
-        <Grid item xs={10}>
-            <SearchBar />
-            {jobsData.map(job =><JobCard key={job.id} {...job}/>)}
-        </Grid>
-      </Grid>
-    </ThemeProvider>
-  );
-}
-
-export default App;
+       <BrowserRouter>
+         <Routes>
+           <Route path='/' element={<Home/>} />
+           <Route path='/About' element={<About/>} />
+           <Route path='/Contact' element={<Contact/>} />
+           <Route path='/Signin' element={<Signin/>} />
+           <Route path='/Signup' element={<Signup/>} />
+           <Route path='/JobList' element={<JobList/>} />
+           <Route path='*' element={<Pagenotfound/>} />
+         </Routes>
+       </BrowserRouter>
+     </ThemeProvider>
+   
+   );
+ }
+ export default App;
