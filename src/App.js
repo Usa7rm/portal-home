@@ -10,6 +10,7 @@ import Signin from './Pages/Signin';
 import Signup from './Pages/Signup';
 import Pagenotfound from './Pages/Pagenotfound';
 import theme from './theme/theme'
+import Events from './Pages/Events';
 
 const App = () => {
    return (
@@ -22,6 +23,7 @@ const App = () => {
            <Route path='/Signin' element={<Signin/>} />
            <Route path='/Signup' element={<Signup/>} />
            <Route path='/JobList' element={<JobList/>} />
+           <Route path='/Events' element={<Events/>} />
            <Route path='*' element={<Pagenotfound/>} />
          </Routes>
        </BrowserRouter>

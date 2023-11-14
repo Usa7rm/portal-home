@@ -25,17 +25,18 @@ const NavBar = () => {
                   })}>
                     Home
                 </Button>
-                <Button color="inherit" component={NavLink} to="/About" style={({isActive})=>({color: isActive ? '#1d1c1c' : 'inherit',
-                    backgroundColor: isActive ? '#71c4ef' : 'transparent',})}>
-                    About
-                </Button>
-                <Button color="inherit" component={NavLink} to="/Contact" activeClassName="active">
-                    Contact
-                </Button>
                 <Button color="inherit" component={NavLink} to="/JobList" 
                     style={({isActive})=>({color: isActive ? '#1d1c1c' : 'inherit',
                     backgroundColor: isActive ? '#71c4ef' : 'transparent',})}>
                     Job Listing
+                </Button>
+                <Button color="inherit" component={NavLink} to="/Events" 
+                    style={({isActive})=>({color: isActive ? '#1d1c1c' : 'inherit',
+                    backgroundColor: isActive ? '#71c4ef' : 'transparent',})}>
+                    Events
+                </Button>
+                <Button color="inherit" component={NavLink} to="/Contact" activeClassName="active">
+                    Contact
                 </Button>
                 <Button color="inherit" component={NavLink} to="/Signin" activeClassName="active">
                     Sign in / Sign Up
