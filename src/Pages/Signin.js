@@ -57,7 +57,6 @@ const Signin = () => {
                         <FormLabel style={sorc} >Login in as a:</FormLabel>
                             <RadioGroup
                                 row
-                                aria-labelledby="demo-row-radio-buttons-group-label"
                                 name="row-radio-buttons-group"
                             >
                                 <FormControlLabel value="Student" control={<Radio />} label="Student" />

@@ -50,6 +50,11 @@ const theme = createTheme({
             backgroundColor: '#d4eaf7', // Replace with your desired hover color
           },
         },
+
+        text: {
+          color: '#1d1c1c',
+          backgroundColor: '#71c4ef', // Replace with your desired color
+        },
         outlined: {
           borderRadius: '40px',
           borderRadiusColor: '#1d1c1c',

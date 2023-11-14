@@ -35,10 +35,14 @@ const NavBar = () => {
                     backgroundColor: isActive ? '#71c4ef' : 'transparent',})}>
                     Events
                 </Button>
-                <Button color="inherit" component={NavLink} to="/Contact" activeClassName="active">
+                <Button color="inherit" component={NavLink} to="/Contact"
+                style={({isActive})=>({color: isActive ? '#1d1c1c' : 'inherit',
+                backgroundColor: isActive ? '#71c4ef' : 'transparent',})} >
                     Contact
                 </Button>
-                <Button color="inherit" component={NavLink} to="/Signin" activeClassName="active">
+                <Button color="inherit" component={NavLink} to="/Signin"
+                style={({isActive})=>({color: isActive ? '#1d1c1c' : 'inherit',
+                backgroundColor: isActive ? '#71c4ef' : 'transparent',})}>
                     Sign in / Sign Up
                 </Button>
             </Toolbar>
