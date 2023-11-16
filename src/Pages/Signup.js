@@ -95,24 +95,19 @@ const SignUp = () => {
                             </RadioGroup>
                         </FormControl>
                     </Grid>
-
-                    {/* Conditional Rendering based on Radio Button */}
                     {value === "Student" && (
                         <>
-                            <TextField name="Name" id="Name" label="Name" variant="filled" style={Fieldkstyle} fullWidth required />
-                            <TextField name="Email" id="Email" label="Email" variant="filled" style={Fieldkstyle} fullWidth required />
-                            <FormControl fullWidth variant="filled" style={Fieldkstyle}>
+                            <TextField name="Name" id="Name" label="Name" variant="outlined" style={Fieldkstyle} fullWidth required />
+                            <TextField name="Email" id="Email" label="Email" variant="outlined" style={Fieldkstyle} fullWidth required />
+                            <FormControl fullWidth variant="outlined" style={Fieldkstyle}>
                                 <InputLabel>University</InputLabel>
                                 <Select
-                                    labelId="demo-simple-select-label"
-                                    id="demo-simple-select"
                                     value={fieldOfStudy}
                                     onChange={handleFieldOfStudyChange}
                                 >
                                     <MenuItem value={"Lut"}>Lappeenranta–Lahti University of Technology LUT</MenuItem>
                                     <MenuItem value={"University of Helsinki"}>University of Helsinki</MenuItem>
                                     <MenuItem value={"OULU Uni"}>University of Oulu</MenuItem>
-                                    {/* Add more options as needed */}
                                 </Select>
                             </FormControl>
                         </>

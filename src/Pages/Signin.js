@@ -1,6 +1,6 @@
 import React from 'react';
 import LockOpenRoundedIcon from '@mui/icons-material/LockOpenRounded';
-import { Avatar, Button, Grid, Link, Paper, TextField, Typography } from "@mui/material";
+import { Avatar, Button, Grid, Paper, TextField, Typography } from "@mui/material";
 import { Link as RouterLink } from "react-router-dom";
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
@@ -67,9 +67,6 @@ const Signin = () => {
               <TextField id="UserNAme" label="First Name" variant="filled" style={Fieldkstyle} fullWidth required />
               <TextField id="Password" label="Enter Password" variant="filled" type='password' fullWidth required />
               <Button type="submit" color="primary" variant='contained' style={btnstyle} fullWidth>Sign In</Button>
-              <Typography>
-                  <Link href="#basics">Forgot Password?</Link>
-              </Typography>
               <Typography>
                   Do you have an Account?
                   <RouterLink to="/signup"> Sign up</RouterLink>

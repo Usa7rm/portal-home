@@ -1,7 +1,9 @@
 import React from 'react';
-import { Container, Card, CardContent, Typography, CardHeader, Divider, Button, Grid } from '@mui/material';
+import { Container, Card, CardContent, Typography, CardHeader, Divider, Button, Grid, CardMedia } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import backgroundImage from '../Utils/event.jpg';
+import '../Events.css';
+import eventImage from '../Utils/event.jpg';  // Placeholder image for each event card
+
 
 const eventsData = [
     {
@@ -62,58 +64,54 @@ const eventsData = [
       }
     ];    
     const StyledCard = styled(Card)(({ theme }) => ({
-    height: 250,
-    transition: '0.3s',
-    boxShadow: '0 8px 40px -12px rgba(0,0,0,0.3)',
-    '&:hover': {
-      boxShadow: '0 16px 70px -12.125px rgba(0,0,0,0.3)',
-      transform: 'scale(1.03)'
-    },
-    backgroundImage: `url(${backgroundImage})`,
-    backgroundSize: 'cover',
-    backgroundPosition: 'center'
-}));
-
-const JoinButton = styled(Button)(({ theme }) => ({
-    marginTop: 10,
-    backgroundColor: theme.palette.secondary.main,
-    color: theme.palette.common.white,
-    '&:hover': {
-      backgroundColor: theme.palette.secondary.dark
-    }
-}));
-
-const EventsContainer = styled(Container)(({ theme }) => ({
-    backgroundImage: `url(${backgroundImage})`,
-    backgroundSize: 'cover',
-    backgroundRepeat: 'no-repeat',
-    backgroundPosition: 'center center',
-}));
-
-const Events = () => {
-  return (
-    <EventsContainer maxWidth="lg" className="events-container">
-      <Typography variant="h3" gutterBottom align="center" style={{ marginBottom: 30, color: '#2E3B55' }}>
-        Upcoming Events
-      </Typography>
-      <Divider />
-      <Grid container spacing={3}>
-        {eventsData.map(event => (
-          <Grid item xs={12} sm={4} key={event.id}>
-            <StyledCard className="event-card">
-              <CardHeader className="event-card-content" title={event.name} subheader={event.location} />
-              <CardContent className="event-card-content">
-                <Typography variant="h6">
-                  {event.date} at {event.time}
-                </Typography>
-                <JoinButton className="join-button" variant="contained">Join Event</JoinButton>
-              </CardContent>
-            </StyledCard>
-          </Grid>
-        ))}
-      </Grid>
-    </EventsContainer>
-  );
-}
-
-export default Events;
+      height: 350,
+      transition: '0.3s',
+      boxShadow: '0 8px 40px -12px rgba(0,0,0,0.3)',
+      '&:hover': {
+        boxShadow: '0 16px 70px -12.125px rgba(0,0,0,0.3)',
+        transform: 'scale(1.03)'
+      }
+  }));
+  
+  const JoinButton = styled(Button)(({ theme }) => ({
+      marginTop: 10,
+      backgroundColor: theme.palette.secondary.main,
+      color: theme.palette.common.white,
+      '&:hover': {
+        backgroundColor: theme.palette.secondary.dark
+      }
+  }));
+  
+  const Events = () => {
+    return (
+      <Container maxWidth="lg" className="events-container">
+        <Typography variant="h2" gutterBottom align="center" style={{ marginBottom: 50, color: '#2E3B55' }}>
+          Upcoming Events
+        </Typography>
+        <Divider />
+        <Grid container spacing={4}>
+          {eventsData.map(event => (
+            <Grid item xs={12} sm={6} md={4} key={event.id}>
+              <StyledCard className="event-card">
+                <CardMedia
+                  component="img"
+                  height="140"
+                  image={eventImage}  // Placeholder image for each event card
+                  alt={event.name}
+                />
+                <CardHeader title={event.name} subheader={event.location} />
+                <CardContent>
+                  <Typography variant="h6">
+                    {event.date} at {event.time}
+                  </Typography>
+                  <JoinButton variant="contained" fullWidth>Join Event</JoinButton>
+                </CardContent>
+              </StyledCard>
+            </Grid>
+          ))}
+        </Grid>
+      </Container>
+    );
+  }
+  
+  export default Events;
